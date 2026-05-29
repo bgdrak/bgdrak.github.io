@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- FIX 3 : FontAwesome importé correctement -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -37,7 +39,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ---- GRAIN OVERLAY ---- */
         body::before {
             content: '';
             position: fixed;
@@ -48,7 +49,6 @@
             opacity: 0.5;
         }
 
-        /* ---- NAV ---- */
         nav {
             position: fixed;
             top: 0; left: 0; right: 0;
@@ -118,7 +118,6 @@
             50% { opacity: 0.4; transform: scale(0.8); }
         }
 
-        /* ---- HERO ---- */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -298,7 +297,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ---- SECTION LAYOUT ---- */
         section { padding: 7rem 2rem; }
 
         .container {
@@ -332,12 +330,9 @@
             line-height: 1.7;
         }
 
-        /* ---- PROJETS ---- */
         #projets { background: var(--bg); }
 
-        .section-header {
-            margin-bottom: 4rem;
-        }
+        .section-header { margin-bottom: 4rem; }
 
         .projects-grid {
             display: grid;
@@ -375,16 +370,6 @@
         }
 
         .project-card:hover::before { opacity: 1; }
-
-        .project-card.coming-soon {
-            opacity: 0.6;
-            border-style: dashed;
-        }
-
-        .project-card.coming-soon:hover {
-            transform: none;
-            box-shadow: none;
-        }
 
         .card-top {
             display: flex;
@@ -437,6 +422,12 @@
             color: var(--amber);
             border-color: rgba(245,158,11,0.3);
             background: rgba(245,158,11,0.08);
+        }
+
+        .status-done {
+            color: var(--text-muted);
+            border-color: rgba(107,114,128,0.3);
+            background: rgba(107,114,128,0.08);
         }
 
         .card-title {
@@ -499,7 +490,6 @@
             color: white;
         }
 
-        /* ---- COMPÉTENCES ---- */
         #competences {
             background: var(--surface);
             border-top: 1px solid var(--border);
@@ -570,7 +560,6 @@
             to { transform: scaleX(1); }
         }
 
-        /* ---- STATS ---- */
         .stats-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -601,7 +590,6 @@
             color: var(--text-muted);
         }
 
-        /* ---- CONTACT / FOOTER ---- */
         #contact {
             background: var(--bg);
             text-align: center;
@@ -630,6 +618,7 @@
             margin-bottom: 3rem;
         }
 
+        /* FIX 3 : styles des boutons contact cohérents avec le reste */
         .contact-links {
             display: flex;
             justify-content: center;
@@ -660,9 +649,8 @@
             transform: translateY(-2px);
         }
 
-        .social-btn svg {
-            width: 18px; height: 18px;
-            fill: currentColor;
+        .social-btn i {
+            font-size: 1rem;
         }
 
         footer {
@@ -677,14 +665,12 @@
 
         footer span { color: var(--text-muted); }
 
-        /* ---- DIVIDER ---- */
         .section-divider {
             width: 100%;
             height: 1px;
             background: linear-gradient(90deg, transparent, var(--border), transparent);
         }
 
-        /* ---- RESPONSIVE ---- */
         @media (max-width: 768px) {
             nav { padding: 1rem 1.25rem; }
             .nav-badge { display: none; }
@@ -754,7 +740,8 @@
             </div>
 
             <div class="projects-grid">
-                <!-- Projet 1 -->
+
+                <!-- Projet 1 : Brawl Stars Tracker -->
                 <a href="https://github.com/bgdrak/brawl-stars-tracker" target="_blank" class="project-card">
                     <div class="card-top">
                         <div class="card-icon">
@@ -777,41 +764,58 @@
                     </div>
                 </a>
 
-                <!-- Projet 2 -->
+                <!-- Projet 2 : GitHub Cyber-Score -->
                 <a href="https://github.com/bgdrak/github-analyzer" target="_blank" class="project-card">
-    <div class="card-top">
-        <div class="card-icon">
-            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-            </svg>
+                    <div class="card-top">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                        </div>
+                        <span class="card-status status-done">Terminé</span>
+                    </div>
+                    <h3 class="card-title">GitHub Cyber-Score</h3>
+                    <p class="card-desc">Un analyseur cyberpunk qui interroge l'API GitHub pour évaluer un profil, son ancienneté et générer un score d'activité en temps réel.</p>
+                    <div class="card-footer">
+                        <div class="tech-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Flask</span>
+                            <span class="tag">GitHub API</span>
+                        </div>
+                        <div class="card-arrow">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l10-10M7 7h10v10"/></svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- FIX 1 & 2 : Projet YANA — HTML corrigé + lien GitHub corrigé (casse exacte) -->
+                <a href="https://github.com/bgdrak/YANA" target="_blank" class="project-card">
+                    <div class="card-top">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                        </div>
+                        <span class="card-status status-live">Live</span>
+                    </div>
+                    <h3 class="card-title">YANA ✨</h3>
+                    <p class="card-desc">Une plateforme de bien-être développée en Full-Stack. Permet aux utilisateurs d'exprimer leurs émotions en temps réel grâce à une interface intuitive et bienveillante.</p>
+                    <div class="card-footer">
+                        <div class="tech-tags">
+                            <span class="tag">Full-Stack</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">FastAPI</span>
+                            <span class="tag">HTML/JS</span>
+                        </div>
+                        <div class="card-arrow">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l10-10M7 7h10v10"/></svg>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
         </div>
-        <span class="card-status">Terminé</span>
-    </div>
-    <h3 class="card-title">GitHub Cyber-Score</h3>
-    <p class="card-desc">Un analyseur cyberpunk qui interroge l'API GitHub pour évaluer un profil, son ancienneté et générer un score d'activité en temps réel.</p>
-    <div class="card-footer">
-        <div class="tech-tags">
-            <span class="tag">Python</span>
-            <span class="tag">Flask</span>
-            <span class="tag">GitHub API</span>
-        </div>
-    </div>
-</a>
-<!-- Projet Yana -->
-<<div class="card">
-  <a href="https://github.com/bgdrak/YANA" class="project-card">
-    <div class="project-content">
-        <h3>YANA ✨</h3>
-        <p>Une plateforme de bien-être développée en Full-Stack (HTML/JS + Python FastAPI). Permet aux utilisateurs d'exprimer leurs émotions en temps réel.</p>
-        <div class="tags" style="margin-top: 1rem; display: flex; gap: 0.5rem;">
-            <span class="badge">Full-Stack</span>
-            <span class="badge">Python</span>
-            <span class="badge">FastAPI</span>
-        </div>
-    </div>
-</a>">
-</div>
-</section>
+    </section>
 
     <div class="section-divider"></div>
 
@@ -893,35 +897,35 @@
                 </div>
             </div>
         </div>
-</section>
+    </section>
+
     <div class="section-divider"></div>
 
-    <!-- CONTACT -->
+    <!-- CONTACT — FIX 3 : classes unifiées, FontAwesome chargé -->
     <section id="contact">
-  <div class="container">
-    <div class="contact-box">
-      <p class="section-label">Restons en contact</p>
-      <h2 class="contact-title">Me joindre</h2>
-      
-      <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem;">
-        <!-- Lien Email (à adapter avec ton adresse) -->
-        <a href="mailto:ton.konebougouzie33@gmail.com" class="contact-link">
-          <i class="fas fa-envelope"></i> Email
-        </a>
-        
-        <!-- Lien GitHub -->
-        <a href="https://github.com/bgdrak" target="_blank" class="contact-link">
-          <i class="fab fa-github"></i> GitHub
-        </a>
-        
-        <!-- Lien Instagram -->
-        <a href="https://www.instagram.com/bg.draken" target="_blank" class="contact-link">
-          <i class="fab fa-instagram"></i> Instagram: @bg.draken
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="container">
+            <div class="contact-box">
+                <p class="section-label">03 — contact</p>
+                <h2 class="contact-title">Me <span>joindre</span></h2>
+                <p class="contact-desc">Un projet, une collab, une question ? Je suis disponible.</p>
+
+                <div class="contact-links">
+                    <a href="mailto:konebougouzie33@gmail.com" class="social-btn">
+                        <i class="fas fa-envelope"></i>
+                        Email
+                    </a>
+                    <a href="https://github.com/bgdrak" target="_blank" class="social-btn">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                    <a href="https://www.instagram.com/bg.draken" target="_blank" class="social-btn">
+                        <i class="fab fa-instagram"></i>
+                        @bg.draken
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <span>© 2026 bgdrak</span> — Fait avec passion. Tous droits réservés.
